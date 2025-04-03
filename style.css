@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  /* For Dark Mode */
+  --dark-bg-color: #000;
+  --dark-text-color: #fff;
+
+  /* For Light Mode */
+  --light-bg-color: cornsilk;
+  --light-text-color: #000;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+  height: 100%;
+  width: 100%;
+}
+
+.input-box {
+  max-height: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.input-box input {
+  border: 1px solid #cccccc89;
+  outline: none;
+  padding: 0.7rem 2rem;
+  width: 40%;
+  border-radius: 2rem;
+  background: transparent;
+  color: var(--dark-text-color);
+}
+
+.input-box input:focus {
+  border: 1px solid #ffffff89;
+}
+
+.input-box span {
+  font-size: 1.5rem;
+  color: rebeccapurple;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.input-box button {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  border: none;
+  background-color: rebeccapurple;
+  color: #fff;
+}
+
+.note-container {
+  height: calc(100% - 100px);
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.note-container .notes {
+  position: relative;
+  max-width: 350px;
+  width: 100%;
+  height: 9rem;
+  border-radius: 0.3rem;
+  margin: 0.5rem;
+  background: rgba(155, 155, 155, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  padding: 1rem;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.note-container .notes button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  transition: all ease 0.2s;
+}
+
+.note-container .notes button:hover {
+  color: red;
+}
+
+/* Code to make the website responsive */
+
+@media only screen and (max-width: 640px){
+  .input-box span {
+    display:none;
+  }
+
+  .input-box input {
+    width: 50%;
+  }
+}
