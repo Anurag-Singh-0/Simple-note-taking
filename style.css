@@ -123,4 +123,8 @@ body {
   .input-box input {
     width: 50%;
   }
+
+  .note-container{
+    display: flex;
+  }
 }

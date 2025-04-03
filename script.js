@@ -12,6 +12,7 @@ function createNotes() {
     return;
   }
 
+  // Create note element
   let noteDiv = document.createElement("div");
   noteDiv.className = "notes";
   let content = document.createElement("p");
@@ -26,34 +27,28 @@ function createNotes() {
   noteDiv.appendChild(Button);
   noteContainer.appendChild(noteDiv);
 
-  //store notes in localStorage
-  saveNote();
+  // Store note in localStorage
+  saveNotes();
 
   inputBox.value = "";
 
+  // Delete note functionality
   Button.addEventListener("click", () => {
     noteDiv.remove();
-    saveNote(); // Update localStorage after deletion
+    saveNotes(); // Update localStorage after deletion
   });
 }
 
-function saveNote() {
+// Save notes to localStorage
+function saveNotes() {
   let notes = [];
   document.querySelectorAll(".content").forEach((note) => {
     notes.push(note.textContent);
   });
-
-  localStorage.setItem("notes", JSON.stringify(notes)); //it convert your array data into string
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-btn.addEventListener("click", createNotes);
-
-inputBox.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    createNotes();
-  }
-});
-
+// Load notes from localStorage
 function loadNotes() {
   let savedNotes = JSON.parse(localStorage.getItem("notes")) || [];
   savedNotes.forEach((noteText) => {
@@ -71,16 +66,17 @@ function loadNotes() {
     noteDiv.appendChild(Button);
     noteContainer.appendChild(noteDiv);
 
-    //store notes in localStorage
-    saveNote();
-
-    inputBox.value = "";
-
     Button.addEventListener("click", () => {
       noteDiv.remove();
-      saveNote(); // Update localStorage after deletion
+      saveNotes(); // Update localStorage after deletion
     });
   });
 }
 
-loadNotes();
+// Event listeners
+btn.addEventListener("click", createNotes);
+inputBox.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    createNotes();
+  }
+});
